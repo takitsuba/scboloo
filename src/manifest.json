@@ -3,8 +3,10 @@
   "description": "easy way to post webpage to scrapbox.io",
   "author": "pastak",
   "version": "1.0.1",
+  "host_permissions": [
+    "*://*/*"
+  ],
   "permissions": [
-    "<all_urls>",
     "activeTab",
     "tabs",
     "storage",
@@ -17,8 +19,7 @@
     }
   },
   "background": {
-    "scripts": ["main.js"],
-    "persistent": false
+    "service_worker": "main.js"
   },
   "content_scripts": [
     {
@@ -27,11 +28,10 @@
     }
   ],
   "options_ui": {
-    "page": "option/option.html",
-    "chrome_style": true
+    "page": "option/option.html"
   },
-  "browser_action": {
+  "action": {
     "default_popup": "/popup/popup.html"
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }
